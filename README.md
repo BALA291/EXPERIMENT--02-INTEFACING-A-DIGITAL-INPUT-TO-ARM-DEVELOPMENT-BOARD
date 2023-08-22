@@ -51,8 +51,10 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 ## STM 32 CUBE PROGRAM :
+```
 Developed by: BALAMURUGAN B
 Reference Number:212222230016
+
 #include "main.h"
 #include "stdbool.h"
 bool button_status;
@@ -109,7 +111,7 @@ void pushbutton()
 	}
 }
 
-
+```
 
 ## Output  :
  ![IMG_1095](https://github.com/BALA291/EXPERIMENT--02-INTEFACING-A-DIGITAL-INPUT-TO-ARM-DEVELOPMENT-BOARD/assets/120717501/265d64b3-ccb0-471b-ab40-5f633c638e70)
