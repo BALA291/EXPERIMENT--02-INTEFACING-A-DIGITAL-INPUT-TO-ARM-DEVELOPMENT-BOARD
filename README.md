@@ -51,13 +51,70 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 ## STM 32 CUBE PROGRAM :
+Developed by: BALAMURUGAN B
+Reference Number:212222230016
+#include "main.h"
+#include "stdbool.h"
+bool button_status;
+void pushbutton();
+
+
+/* Private typedef -----------------------------------------------------------*/
+
+
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+ 
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  
+  SystemClock_Config();
+
+ 
+  MX_GPIO_Init();
+  
+  while (1)
+  {
+	  pushbutton();
+   
+  }
+ 
+}
+
+void pushbutton()
+{
+	button_status = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+	if (button_status == 0)
+	{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_SET);
+		HAL_Delay(1000);
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5,GPIO_PIN_RESET);
+		HAL_Delay(1000);
+	}
+	else
+	{
+		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5,GPIO_PIN_RESET);
+	}
+}
 
 
 
 ## Output  :
- 
- 
- 
- 
+ ![IMG_1095](https://github.com/BALA291/EXPERIMENT--02-INTEFACING-A-DIGITAL-INPUT-TO-ARM-DEVELOPMENT-BOARD/assets/120717501/265d64b3-ccb0-471b-ab40-5f633c638e70)
+![IMG_1096](https://github.com/BALA291/EXPERIMENT--02-INTEFACING-A-DIGITAL-INPUT-TO-ARM-DEVELOPMENT-BOARD/assets/120717501/886c2fb9-c10a-4708-a346-313a8492bc28)
+![IMG_1097](https://github.com/BALA291/EXPERIMENT--02-INTEFACING-A-DIGITAL-INPUT-TO-ARM-DEVELOPMENT-BOARD/assets/120717501/2c28b671-4937-4892-8b0d-2de40c33310a)
+
 ## Result :
 Interfacing a digital Input (Pushbutton ) with ARM microcontroller based IOT development is executed and the results are verified.
